@@ -216,36 +216,37 @@
         document.getElementById("solaroid__7").style.visibility = "hidden";
 
         var string_id = "solaroid00"
-        var num_to_string;
+        var num_to_string = "solaroid00";
         var maths_s;
         maths_s = y *100
         maths_s = Math.abs(maths_s);
-        
+        var minus = false;
 
-        num_to_string = Number(maths_s.toString());
-        
+        num_to_string = maths_s.toString();
+        console.log(num_to_string);
 
         try {
-        if (y < 0) {
-
+        if (y>0) {
+            minus = true;
             string_id = "solaroid" + "__" +  num_to_string
         }
-        if (y > 0) {
+        if (y<0)  {
+            minus = false;
             string_id = "solaroid" + "_" +  num_to_string
         }
-        if (y == 0) {
+        if ((parseInt(num_to_string) == 0)) {
             string_id = "solaroid" + "00"
         }
-        if (y < -0.07){
-            string_id = "solaroid" + "__" +  "7"
-        }
-        if (y > 0.07){
+        if (((parseInt(num_to_string) >=7)) && (minus == false)){
             string_id = "solaroid" + "_" +  "7"
         }
-        console.log(string_id)
+        if (((parseInt(num_to_string) >=7)) && (minus == true)){
+            string_id = "solaroid" + "__" +  "7"
+        }
+        
         document.getElementById(string_id).style.visibility = "visible";
     } catch{
-        
+
 
     }
 
